@@ -31,9 +31,11 @@ function togleOverlay () {
 
 function showModal (event) {
     const modalList = [...document.querySelectorAll('[data-show-modal]')] // список модалок
-    const targetModal = event.target.dataset.modal
+    console.log(event.target.closest('[data-modal]'))
+    const targetModal = event.target.dataset.modal ?? event.target.closest('[data-modal]').dataset.modal
 
     if(!targetModal) return
+    
     modalList.find( (item) => {
         return item.dataset.showModal === targetModal
     })
